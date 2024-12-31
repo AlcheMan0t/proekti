@@ -1,0 +1,20 @@
+{
+  "name": "forkifu",
+  "version": "1.0.0",
+  "description": "recipe app",
+  "scripts": {
+    "start": "parcel starter/index.html",
+    "build": "parcel build starter/index.html"
+  },
+  "author": "Aleksandar Alche",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.13.0",
+    "parcel": "^2.13.0"
+  },
+  "dependencies": {
+    "core-js": "^3.39.0",
+    "fractional": "^1.0.0",
+    "regenerator-runtime": "^0.14.1"
+  }
+}
