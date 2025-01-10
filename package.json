@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "recipe app",
   "scripts": {
-    "start": "parcel starter/index.html",
-    "build": "parcel build starter/index.html"
+    "start": "parcel proekt/index.html",
+    "build": "parcel build proekt/index.html"
   },
   "author": "Aleksandar Alche",
   "license": "ISC",
