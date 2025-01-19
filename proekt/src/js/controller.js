@@ -22,7 +22,7 @@ const controlRecipes = async function () {
     recipeView.renderError();
   }
 };
-
+console.log(localStorage);
 const controlSearchResults = async function () {
   try {
     resultsView.renderSpinner();
@@ -77,6 +77,21 @@ const controlAddRecipe = async function (newRecipe) {
     addRecipeView.renderError(err.message);
   }
 };
+// const clearLocalStorageRecepti = function () {
+//   localStorage.clear('addedRecipes');
+// };
+// const clearLocalStorageBookmarks = function () {
+//   localStorage.clear('bookmarks');
+// };
+// function clearBookmarkById(id) {
+//   const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+//   const updatedBookmarks = bookmarks.filter(bookmark => bookmark.id !== id);
+//   localStorage.setItem('bookmarks', JSON.stringify(updatedBookmarks));
+
+//   console.log(`Bookmark with ID ${id} has been removed from local storage.`);
+// }
+// console.log(localStorage);
+// // clearBookmarkById('678d55e72152d600150cd785');
 
 const init = function () {
   bookmarksView.addHandlerRender(controlBookmarks);
