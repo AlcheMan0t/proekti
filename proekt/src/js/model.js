@@ -68,10 +68,12 @@ export const getSearchResultsPage = function (page = state.search.page) {
   return state.search.results.slice(start, end);
 };
 export const updateServings = function (serv) {
-  state.recipe.ingredients.forEach(ing => {
-    ing.quantity = (ing.quantity * serv) / state.recipe.servings;
-  });
-  state.recipe.servings = serv;
+  if (serv <= 10) {
+    state.recipe.ingredients.forEach(ing => {
+      ing.quantity = (ing.quantity * serv) / state.recipe.servings;
+    });
+    state.recipe.servings = serv;
+  } else alert('Too many servings');
 };
 
 const persistBookmark = function () {
@@ -98,8 +100,18 @@ init();
 const clearBookmarks = function () {
   localStorage.clear('bookmarks');
 };
+function reloadAfterDelay(delay) {
+  setTimeout(function () {
+    window.location.reload();
+  }, delay);
+}
 export const uploadRecipe = async function (params) {
   try {
+    if (+params.servings > 10) {
+      reloadAfterDelay(2000);
+      throw new Error('Servings cannot be more than 10');
+    }
+
     const ingredients = Object.entries(params)
       .filter(entry => entry[0].startsWith('ingredient') && entry[1] !== '')
       .map(ing => {
